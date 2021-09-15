@@ -1,0 +1,60 @@
+{
+        "alimentos": {
+                "natilla de chocolate": "150kcal",
+                "chicle": "0kcal",
+                "hamburguesa de zanahoria": "165kcal",
+                "loncha de queso": "86kcal",
+                "pistachos": "450kcal/100gr",
+                "gaseosa zero": "0kcal",
+                "mcflurry": "400kcal",
+                "croquetas": "100kcal/unidad",
+                "yogur natural": "56kcal",
+                "anacardos": "350kcal/100gr",
+                "banana": "200kcal",
+                "monster": "300kcal",
+                "cocacola": "200kcal",
+                "pringels": "200kcal/100gr",
+                "kitkat": "250kcal",
+                "agua": "0kcal",
+                "cerveza": "43kcal",
+                "onza de chocolate": "50kcal",
+                "tomate": "25kcal"
+        },
+        "usuarios": {
+                "Varmilo": "varmilova",
+                "la_mari": "mari19a\u00f1itos",
+                "el_pApA": "elpapa123",
+                "danni": "DaniGuapo1312",
+                "dkjasf": "123456"
+        },
+        "info_usuarios": {
+                "Varmilo": {
+                        "name": "Daniel",
+                        "last": "Atanasov",
+                        "age": "14"
+                },
+                "la_mari": {
+                        "name": "Mariana",
+                        "last": "Angelova",
+                        "age": 19
+                },
+                "el_pApA": {
+                        "name": "Atanas",
+                        "last": "Atanasov",
+                        "age": 20,
+                        "email": "algo@gmail.com"
+                },
+                "danni": {
+                        "name": "Daniel",
+                        "last": "Atanasov",
+                        "age": 14,
+                        "email": "daniel.chichkov@gmail.com"
+                },
+                "dkjasf": {
+                        "name": "ejemplo",
+                        "last": "ejemplo",
+                        "age": 83,
+                        "email": "odfajsl@dfkasjas"
+                }
+        }
+}
