@@ -22,10 +22,7 @@
         },
         "usuarios": {
                 "Varmilo": "varmilova",
-                "la_mari": "mari19a\u00f1itos",
-                "el_pApA": "elpapa123",
-                "danni": "DaniGuapo1312",
-                "dkjasf": "123456"
+                "Daniel_a": "on#dayyouwilll#av#thisworld"
         },
         "info_usuarios": {
                 "Varmilo": {
@@ -33,28 +30,11 @@
                         "last": "Atanasov",
                         "age": "14"
                 },
-                "la_mari": {
-                        "name": "Mariana",
-                        "last": "Angelova",
-                        "age": 19
-                },
-                "el_pApA": {
-                        "name": "Atanas",
-                        "last": "Atanasov",
-                        "age": 20,
-                        "email": "algo@gmail.com"
-                },
-                "danni": {
+                "Daniel_a": {
                         "name": "Daniel",
                         "last": "Atanasov",
-                        "age": 14,
-                        "email": "daniel.chichkov@gmail.com"
-                },
-                "dkjasf": {
-                        "name": "ejemplo",
-                        "last": "ejemplo",
-                        "age": 83,
-                        "email": "odfajsl@dfkasjas"
+                        "age": 15,
+                        "email": "daniel.atasto@educa.jcyl.es"
                 }
         }
 }
