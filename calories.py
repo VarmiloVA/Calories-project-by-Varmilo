@@ -36,7 +36,12 @@ while True:
             second_part = 'moment this program is only aviable in spanish'
             print(first_part + second_part, '\n')
 
-            break
+            if log_user == 'Varmilo' and log_password == 'varmilova':
+                admin = True
+                break
+            else:
+                admin = False
+                break
 
         else:
             continue
@@ -104,6 +109,8 @@ while True:
 
             json.dump(dic, file_sign, indent = 8)
 
+        #I have divided the message in three strings because I want to keep
+        #the python zen
         sign_completed = f'\nFelicidades {sign_in_name}!,'
         sign_completed_2 = ' ahora puedes iniciar sesión y tener acceso'
         sign_completed_3 = ' completo.'
@@ -124,6 +131,46 @@ while True:
     if ent not in dicc and len(ent) <= 0:
         print("Has de poner el nombre de un alimento :(")
         break
+    
+    elif ent not in dicc and ent == 'del user':
+        while True:
+            del_user = input('Nombre del usuario a borrar: ')
+            del_password = input('Contraseña del usuario a borrar: ')
+        
+            users_d = dic['usuarios']
+            if del_user in users_d and del_password == users_d[del_user]:
+                
+                if admin == True:
+                    with open('calories.json', 'w') as out_f:
+
+                        all_data_q = input('Borrar todos los datos?(S/N): ')
+                        all_data_q = format_up(all_data_q)
+
+                        if all_data_q == 'S':
+                            del dic_user[del_user]
+                            del dic_info[del_user]
+
+                            json.dump(dic, out_f, indent = 8)
+                            break
+                        
+                        elif all_data_q == 'N':
+                            del dic_user[del_user]
+
+                            json.dump(dic, out_f, indent = 8)
+                            break
+                else:
+                    print('No eres un admin, no puedes editar los datos')
+                    break
+
+            else:
+                print('Error, to try again press t, to exit press another key')
+                error_question = input('')
+                error_question = error_question.lower()
+ 		
+                if error_question == 't':
+                    continue
+                else:
+                    break
 
     elif ent in dicc:
         for alimento in dicc:
@@ -213,3 +260,5 @@ while True:
             else:
                 print('try again')
                 continue        
+    break
+
