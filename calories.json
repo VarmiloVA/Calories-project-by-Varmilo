@@ -18,23 +18,25 @@
                 "agua": "0kcal",
                 "cerveza": "43kcal",
                 "onza de chocolate": "50kcal",
-                "tomate": "25kcal"
+                "tomate": "25kcal",
+                "kk": "1010kcal"
         },
         "usuarios": {
                 "Varmilo": "varmilova",
-                "Daniel_a": "on#dayyouwilll#av#thisworld"
+                "Daniel_a": "adminamdin"
         },
         "info_usuarios": {
                 "Varmilo": {
-                        "name": "Daniel",
-                        "last": "Atanasov",
-                        "age": "14"
+                        "name": "Unknown",
+                        "last": "Unknown",
+                        "age": "x",
+                        "email": "admin@admin.com"
                 },
-                "Daniel_a": {
-                        "name": "Daniel",
-                        "last": "Atanasov",
-                        "age": 15,
-                        "email": "daniel.atasto@educa.jcyl.es"
+                "Unknown": {
+                        "name": "Unknown",
+                        "last": "Unknown",
+                        "age": "x",
+                        "email": "unknown@unknown.com"
                 }
         }
 }
