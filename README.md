@@ -1,5 +1,5 @@
 # Calories-project-by-Varmilo
 To do:
-- Unnitest
+- Unitest
 - Use sys
-- Code refactoring is requiered
+- Code refactoring is required
