@@ -13,8 +13,6 @@ During the development of this project I have to deal with some difficulties cau
   
   -Registering users accounts and login
 
-Just to not make this post unnecessarily long I will talk about these difficulties in future publications.
-
 To do:
 - Unitest
 - Create an interface using sys
