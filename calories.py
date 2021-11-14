@@ -1,8 +1,6 @@
 import json
 from re import split
 
-from text_format import *
-
 #opening the json file
 with open("calories.json", "r") as file:
     c = file.read()
@@ -108,7 +106,8 @@ while True:
 
 while True:
     ent = input("- Introduzca un alimento: ")
-    ent = format_low(ent)
+    ent = ent.lower()
+    ent = ent.strip()
 
     if ent not in dicc and len(ent) <= 0:
         print("Has de poner el nombre de un alimento :(")
@@ -124,7 +123,8 @@ while True:
                 if admin == True:
                     with open('calories.json', 'w') as out_f:
                         all_data_q = input('Borrar todos los datos?(S/N): ')
-                        all_data_q = format_up(all_data_q)
+                        all_data_q = all_data_q.upper()
+                        all_data_q = all_data_q.strip()
 
                         if all_data_q == 'S':
                             del dic_user[del_user]
@@ -153,7 +153,8 @@ while True:
     elif ent in dicc:
         for alimento in dicc:
             if alimento == ent:
-                food = format_tit(alimento)     
+                food = food.title()
+                food = food.strip()     
                 print(f"{food}: {dicc[alimento]}")
 
     elif ent == "show all":
@@ -162,14 +163,17 @@ while True:
     elif ent not in dicc and ent!='add' and ent!='break' and ent!='delete':
         print("Ese alimento no está en la base de datos.")
         yes_no_question = input("¿Quiere añadirlo? (S/N)")
-        yes_no_question = format_up(yes_no_question)
+        yes_no_question = yes_no_question.upper()
+        yes_no_questoin = yes_no_question.strip()
 
         if yes_no_question.capitalize() == "S":
             new_alimento = input("Nombre del alimento a añadir: ")
-            new_alimento = format_low(new_alimento)
+            new_alimento = new_alimento.lower()
+            new_alimento = new_alimento.strip()
 
             new_calories = input("Calorías del alimento: ")
-            new_calories = format_low(new_calories)
+            new_calories = new_calories.lower()
+            new_calories = new_calories.strip()
             
             number = split('\D+', new_calories)
 
@@ -188,11 +192,13 @@ while True:
             break
 
     elif ent not in dicc and ent == "add":
-        new_alimento = input("Nombre del alimento a añadir: ")     
-        new_alimento = format_low(new_alimento)
+        new_alimento = input("Nombre del alimento a añadir: ")
+        new_alimento = new_alimento.lower()
+        new_alimento = new_alimento.strip()
 
         new_calories = input("Calorias del alimento: ")
-        new_calories = format_low(new_calories)
+        new_calories = new_calories.lower()
+        new_calories = new_calories.strip()
 
         if new_calories.isdigit() == False:
             dicc[new_alimento] = new_calories
@@ -215,7 +221,8 @@ while True:
     elif ent not in dicc and ent == 'delete':
         while True:
             delete_question = input('Qué alimento desea eliminar? ')
-            delete_question = format_low(delete_question)            
+            delete_question = delete_question.lower()
+            delete_question = delete_question.strip()            
             
             if delete_question in dic['alimentos']:
                 with open('calories.json', 'w') as outfile2:
