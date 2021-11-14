@@ -8,7 +8,9 @@ There are two dictionaries for users because the first one is only for the usern
 During the development of this project I have to deal with some difficulties caused by my limited knowledge in programming:
 
   -Strings management 
+  
   -JSON files use
+  
   -Registering users accounts and login
 
 Just to not make this post unnecessarily long I will talk about these difficulties in future publications.
