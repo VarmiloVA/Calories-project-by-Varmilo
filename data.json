@@ -19,11 +19,12 @@
                 "cerveza": "43kcal",
                 "onza de chocolate": "50kcal",
                 "tomate": "25kcal",
-                "kk": "1010kcal"
+                "kk": "1010kcal",
         },
         "usuarios": {
                 "Varmilo": "varmilova",
-                "Daniel_a": "adminamdin"
+                "Daniel_a": "adminamdin",
+                "Iceman": "raikkonen"
         },
         "info_usuarios": {
                 "Varmilo": {
@@ -32,11 +33,11 @@
                         "age": "x",
                         "email": "admin@admin.com"
                 },
-                "Unknown": {
-                        "name": "Unknown",
-                        "last": "Unknown",
-                        "age": "x",
-                        "email": "unknown@unknown.com"
+                "Iceman": {
+                        "name": "Varmilo Iceman",
+                        "last": "7",
+                        "age": 19,
+                        "email": "iceman@scuderriaferrari.it"
                 }
         }
 }
