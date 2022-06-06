@@ -2,7 +2,7 @@ import json
 from re import split
 
 #opening the json file
-with open("calories.json", "r") as file:
+with open("data.json", "r") as file:
     c = file.read()
 dic = json.loads(c)
 
@@ -81,7 +81,7 @@ while True:
         #diccionario
         sign__age = int(sign_age)
 
-        with open("calories.json", "w") as file_sign:
+        with open("data.json", "w") as file_sign:
             dic_user[sign_in_user] = sign_in_password
 
             dic_info[sign_in_user] = {
@@ -121,7 +121,7 @@ while True:
             users_d = dic['usuarios']
             if del_user in users_d and del_password == users_d[del_user]: 
                 if admin == True:
-                    with open('calories.json', 'w') as out_f:
+                    with open('data.json', 'w') as out_f:
                         all_data_q = input('Borrar todos los datos?(S/N): ')
                         all_data_q = all_data_q.upper()
                         all_data_q = all_data_q.strip()
@@ -177,7 +177,7 @@ while True:
             
             number = split('\D+', new_calories)
 
-            outfil3 = open("calories.json", "w")
+            outfil3 = open("data.json", "w")
             
             dicc[new_alimento] = number[0] + 'kcal'
 
@@ -202,14 +202,14 @@ while True:
 
         if new_calories.isdigit() == False:
             dicc[new_alimento] = new_calories
-            with open("calories.json", "w") as outfile:
+            with open("data.json", "w") as outfile:
                 json.dump(dic, outfile, indent = 8)
                 break
 
         elif new_calories.isdigit() == True:
             new_calories += "kcal"
 
-            with open("calories.json", "w") as outf1le:
+            with open("data.json", "w") as outf1le:
                 dicc[new_alimento] = new_calories
 
                 json.dump(dic, outf1le, indent = 8)
@@ -225,7 +225,7 @@ while True:
             delete_question = delete_question.strip()            
             
             if delete_question in dic['alimentos']:
-                with open('calories.json', 'w') as outfile2:
+                with open('data.json', 'w') as outfile2:
                     del dicc[delete_question]
                     print("El alimento que ha introducido se ha eliminado")
 
