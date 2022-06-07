@@ -8,6 +8,10 @@ create table calories (
     calories int not null,
     primary key (id)
 );
+insert into calories(name, calories) values
+	('Pizza', 500),
+    ('Ice Cream', 300),
+    ('CocaCola', 80);
 
 create table user (
     id int not null auto_increment,
@@ -16,6 +20,9 @@ create table user (
     age int not null,
     primary key(id)
 );
+insert into user(username, email, age) values
+	('VarmiloVA', 'varmilo.blue@protonmail.com', 15),
+    ('Psylo', 'psylo@outlook.com', 31);
 
 create table credential (
     id int not null auto_increment,
@@ -23,3 +30,7 @@ create table credential (
     user int,
     foreign key (user) references user(id)
 );
+
+show tables;
+select * from calories;
+select * from user;
