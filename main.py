@@ -1,6 +1,6 @@
 import pymysql
 from pymysql.err import OperationalError
-#from tkinter import Canvas, Lable, Button, Tk, Frame, Entry, StringVar, Scrollbar, Listbox, END, W, E, N, S
+from tkinter import Tk, Canvas, Label, Frame, Entry, Button, W,  E, Listbox, END
 
 class NutritionalValues():
     def __init__(self, login_status): # Initialize the class
@@ -32,7 +32,6 @@ class NutritionalValues():
                 self.stop = True
                 break
             
-
         while self.login == True:
             print('\n')
             print('- 1. Search for a food')
@@ -105,7 +104,46 @@ class NutritionalValues():
 
     def add(self):pass
 
-    def visual(self):pass
+    def visual_general(self):
+        root = Tk()
+        root.title('Nutritional Values')
+        canvas = Canvas(root)
+        
+        frame = Frame(root)
+        frame.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.8)
+
+        if self.login_status == False:
+            label = Label(frame, text="Do you have an account?")
+            label.grid(row=0, column=1)
+
+            button1 = Button(frame, text="Yes", command=lambda:self.login())
+            button1.grid(row=1, column=1)
+            button2 = Button(frame, text="No", command=lambda:self.register())
+            button2.grid(row=1, column=2)
+        else:
+            while True:
+                label = Label(frame, text="- 1. Search for a food\n- 2. Show all foods\n- 3. Add a food\n- 4. Logout\n- 5. Exit")
+                label.grid(row=0, column=1)
+                entry_request = Entry(frame)
+                entry_request.grid(row=0, column=2)
+
+                if entry_request:
+                    if entry_request.get() == '1':
+                        self.search()
+                    elif entry_request.get() == '2':
+                        self.show_all()
+                    elif entry_request.get() == '3':
+                        self.add()
+                    elif entry_request.get() == '4':
+                        self.login = False
+                    elif entry_request.get() == '5':
+                        self.stop = True
+                    else:
+                        print('\nWrong input')
+                else:
+                    wrong_input_label = Label(frame, text="Wrong input")
+                    wrong_input_label.grid(row=1, column=1)
+                    continue
 
 if __name__ == "__main__": # Run the program
     nv = NutritionalValues(True) # The instance is named as nv for short
