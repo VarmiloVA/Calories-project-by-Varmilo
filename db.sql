@@ -12,6 +12,5 @@ insert into calories(name, calories) values
 	('Pizza', 500),
     ('Ice Cream', 300),
     ('CocaCola', 80);
-caloriesname
 show tables;
 select * from calories;
