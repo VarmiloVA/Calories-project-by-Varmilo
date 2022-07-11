@@ -1,8 +1,5 @@
-from types import NoneType
 import pymysql
 from tkinter import *
-
-from requests import request
 
 class NutritionalValues():
     def __init__(self, window): 
@@ -54,17 +51,21 @@ class NutritionalValues():
         add_button.place(x=21, y=87)
     
     def _add(self, food, calories):
-        if food != NoneType and calories != NoneType:
+        if food != None and calories != None:
             request = "INSERT INTO calories(name, calories) VALUES(%s, %s)"
             conn, cursor = self._connect()
             cursor.execute(request, (food, calories))
-            print('Sexesfully added!')
+            print('Sex-esfully added!')
+            tk.update()
 
-root = Tk()
-root.title('Nutritional Values')
-root.geometry('900x500')
+tk = Tk()
+tk.title('Nutritional Values')
+tk.geometry('900x500')
 
-nv = NutritionalValues(root)
+nv = NutritionalValues(tk)
 nv.visual()
 
-root.mainloop()
+try:
+    tk.mainloop()
+except KeyboardInterrupt:
+    print('Bye!')
