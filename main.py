@@ -5,7 +5,7 @@ from tkinter import *
 from requests import request
 
 class NutritionalValues():
-    def __init__(self, window): # Initialize the class
+    def __init__(self, window): 
         self.window = window
     
     def _connect(self): # Connect to the database
