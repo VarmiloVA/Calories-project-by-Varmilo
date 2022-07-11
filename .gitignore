@@ -1,2 +1,6 @@
+#Pycache
 __pycache__/
-pruebas/
+
+#Virtual env
+.venv/
+_requirements.txt
