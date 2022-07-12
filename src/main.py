@@ -1,4 +1,5 @@
 import pymysql
+import pyttsx3
 from tkinter import *
 
 class NutritionalValues():
@@ -56,8 +57,12 @@ class NutritionalValues():
             conn, cursor = self._connect()
             cursor.execute(request, (food, calories))
             print('Sex-esfully added!')
+            engine = pyttsx3.init()
+            engine.say(f'{food} añadido a la base de datos con el valor de {calories} calorías.')
+            engine.runAndWait()
+            engine.stop()
             tk.update()
-
+        
 tk = Tk()
 tk.title('Nutritional Values')
 tk.geometry('900x500')
