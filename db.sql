@@ -8,6 +8,7 @@ create table calories (
     calories int not null,
     primary key (id)
 );
+
 insert into calories(name, calories) values
 	('Pizza', 500),
     ('Ice Cream', 300),
