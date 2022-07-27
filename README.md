@@ -1,19 +1,5 @@
 # Calories-project-by-Varmilo
-¿Have you ever googled the same thing many times? This also happens to me every time I search for food calories. 
+I've made a CRUD App in which you can add foods and its calories.
+You can just consult the calories of a food.
 
-So I decided to create a repository with this information in Python. To do that I made three dictionaries, one for food information, and two for users.
-
-There are two dictionaries for users because the first one is only for the username and the password and the second one for users data like name, surname, age…
-
-During the development of this project I have to deal with some difficulties caused by my limited knowledge in programming:
-
-  -Strings management 
-  
-  -JSON files use
-  
-  -Registering users accounts and login
-
-To do:
-- Unitest
-- Create an interface using sys
-- Code refactoring is required
+This CRUD have been made with MySQL+Python
