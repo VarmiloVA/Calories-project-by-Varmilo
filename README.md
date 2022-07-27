@@ -1,4 +1,4 @@
-# Calories-project-by-Varmilo
+# Food calories CRUD
 I've made a CRUD App in which you can add foods and its calories.
 You can just consult the calories of a food.
 
