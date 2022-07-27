@@ -9,7 +9,7 @@ create table food (
     primary key (id)
 );
 
-insert into table food(name, calories) VALUES
+insert into food(name, calories) VALUES
     ('Pizza', 500),
     ('Spaghetti', 450);
 

@@ -4,11 +4,7 @@ from tkinter import *
 import pymysql
 
 class Calories:
-    def __init__(self, window):
-        #db settings
-        self.db_name = 'calories'
-        self.db_password = 'mondayl#tm#brok#n'
-
+    def __init__(self, window): #Here is the visual part
         #Initializing the window
         self.window = window
         self.window.title('Calories application')
@@ -27,7 +23,8 @@ class Calories:
         Label(frame, text="Its calories: ").grid(row=2, column=0, sticky=W)
         calories = Entry(frame)
         calories.grid(row=2, column=1)
-        ttk.Button(frame, text='Add').grid(row=3, column=0, sticky=W+E, columnspan=2)
+
+        ttk.Button(frame, text='Add', command=lambda:self.add_food(food.get(), calories.get())).grid(row=3, column=0, sticky=W+E, columnspan=2)
 
         #Table
         self.tree = ttk.Treeview(height=10, columns=2)
@@ -44,34 +41,33 @@ class Calories:
         self.run_query(conn, cursor, query, parameters)
 
     def _connect(self): #Module for connecting to the db
-        try:
-            conn = pymysql.connect(
-                host='localhost', 
-                user='root', 
-                password=self.db_password, 
-                db=self.db_name
-                )
-            cursor = conn.cursor()
-            return conn, cursor
-        except pymysql.err.OperationalError: 
-            print('An error has ocurred while connecting to the db')
+   
+        conn = pymysql.connect(
+            host='localhost',
+            port=3306, 
+            user='root', 
+            password='mondayl#tm#brok#n', 
+            db='calories'
+            )
+        cursor = conn.cursor()
+        return conn, cursor
     
     def run_query(self, conn, cursor, query, parameters=()): #Module for requesting data from the db
-        try:
-            result = cursor.execute(query, parameters)
-            conn.commit()
-            if result:
-                try:
-                    return cursor.fetchall()
-                except:pass
+        # try:
+        result = cursor.execute(query, parameters)
+        conn.commit()
 
-            print('Succesfully runned the query')
+        if result:
+            try:
+                return cursor.fetchall()
+            except:pass
+        print('Succesfully runned the query')
 
-        except:
-            print('An error has ocurred while running the query')
+        # except:
+        #     print('An error has ocurred while running the query')
 
-        finally:
-            conn.close()
+        # finally:
+        #     conn.close()
     
     def get_table(self):
         #Cleaning tree
