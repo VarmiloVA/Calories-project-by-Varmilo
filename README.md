@@ -1,3 +1,5 @@
-# Calories-project-by-Varmilo
-¿Have you ever googled the calories of a food?
-This also happened to me often, then I decided to do this project using MySQL, Python and its Tkinter library
+# Food calories CRUD
+I've made a CRUD App in which you can add foods and its calories.
+You can just consult the calories of a food.
+
+This CRUD have been made with MySQL+Python

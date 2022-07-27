@@ -1,17 +1,17 @@
 show databases;
-create database nutritional_values;
-use nutritional_values;
+create database calories;
+use calories;
 
-create table calories (
+create table food (
     id int not null auto_increment,
     name varchar(255) not null,
     calories int not null,
     primary key (id)
 );
 
-insert into calories(name, calories) values
-	('Pizza', 500),
-    ('Ice Cream', 300),
-    ('CocaCola', 80);
+insert into table food(name, calories) VALUES
+    ('Pizza', 500),
+    ('Spaghetti', 450);
+
 show tables;
-select * from calories;
+select * from food;
