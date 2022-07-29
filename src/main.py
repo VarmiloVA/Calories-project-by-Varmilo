@@ -1,5 +1,6 @@
 from tkinter import ttk
 from tkinter import *
+from turtle import bgcolor
 
 import pymysql
 
@@ -42,10 +43,13 @@ class Calories:
         
     
     def add_food(self, food, calories): 
-        invalid_input = False
-
         food_test = food.replace(' ', '')
         calories.strip()
+
+        invalid = Label(self.frame, text='Invalid input')
+        invalid.grid(row=4, column=0, sticky=W+E, columnspan=2)
+        invalid.config(fg="white")
+        invalid.config(bg="white")
 
         if food_test.isalpha() == True and calories.isnumeric() == True:
             conn, cursor = self._connect()
@@ -53,13 +57,16 @@ class Calories:
             parameters = (food.capitalize(), calories)
             self.run_query(conn, cursor, query, parameters)
             self.get_table()
-            if invalid_input:
-                invalid.destroy()
-                invalid_input = False
+
+            invalid.config(fg="black")
+            invalid.config(bg="white")
+            invalid.config(text="Succesfully registered")
+            
         else:
-            invalid = Label(self.frame, text='Invalid input')
-            invalid.grid(row=4, column=0, sticky=W+E, columnspan=2)
-            invalid_input = True
+            invalid.config(fg="red")
+            invalid.config(bg="white")
+            invalid.config(text="Invalid input")
+            
 
     def delete_food(self, food):
         conn, cursor = self._connect()
