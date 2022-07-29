@@ -1,6 +1,5 @@
 from tkinter import ttk
 from tkinter import *
-from turtle import bgcolor
 
 import pymysql
 
