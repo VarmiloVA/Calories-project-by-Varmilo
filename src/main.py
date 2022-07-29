@@ -11,64 +11,63 @@ class Calories:
         #Optionally, the window size can be set:
         #self.window.geometry('300x300')
         
-        #Creating a Frame Container
-        frame = LabelFrame(self.window, text='Register a food')
-        frame.grid(row=0, column=0, columnspan=3, pady=20)
+        #Creating the adding Frame Container
+        self.frame = LabelFrame(self.window, text='Register a food')
+        self.frame.grid(row=0, column=0, columnspan=3, pady=20)
 
-        #Name Input
-        Label(frame, text="Food's name: ").grid(row=1, column=0, sticky=W)
-        food = Entry(frame)
-        food.grid(row=1, column=1)
-        food.focus_set()
-        Label(frame, text="Its calories: ").grid(row=2, column=0, sticky=W)
-        calories = Entry(frame)
+        #Adding-related
+        Label(self.frame, text="Food's name: ").grid(row=1, column=0, sticky=W)
+        add_food = Entry(self.frame)
+        add_food.grid(row=1, column=1)
+        add_food.focus_set()
+        Label(self.frame, text="Its calories: ").grid(row=2, column=0, sticky=W)
+        calories = Entry(self.frame)
         calories.grid(row=2, column=1)
 
-        ttk.Button(frame, text='Add', command=lambda:self.add_food(food.get(), calories.get())).grid(row=3, column=0, sticky=W+E, columnspan=2)
+        ttk.Button(self.frame, text='Add', command=lambda:self.add_food(add_food.get(), calories.get())).grid(row=3, column=0, sticky=W+E, columnspan=2)
 
-        #Table
+        #Deleting-related
+        Label(self.frame, text="Food's name:").grid(row=5, column=0, sticky=W)
+        del_food = Entry(self.frame)
+        del_food.grid(row=5, column=1)
+
+        ttk.Button(self.frame, text='Delete', command=lambda:self.delete_food(del_food.get())).grid(row=6, column=0, sticky=W+E, columnspan=2)
+
+        #Table-related
         self.tree = ttk.Treeview(height=10, columns=2)
-        self.tree.grid(row=4, column=0, columnspan=2)
+        self.tree.grid(row=9, column=0, columnspan=2)
         self.tree.heading('#0', text='Food', anchor=CENTER)
         self.tree.heading('#1', text='Calories', anchor=CENTER)
-
         self.get_table()
+        
+    
+    def add_food(self, food, calories): 
+        invalid_input = False
 
-    def add_food(self, food, calories):
+        food_test = food.replace(' ', '')
+        calories.strip()
+
+        if food_test.isalpha() == True and calories.isnumeric() == True:
+            conn, cursor = self._connect()
+            query = '''INSERT INTO food (name, calories) VALUES (%s, %s)'''
+            parameters = (food.capitalize(), calories)
+            self.run_query(conn, cursor, query, parameters)
+            self.get_table()
+            if invalid_input:
+                invalid.destroy()
+                invalid_input = False
+        else:
+            invalid = Label(self.frame, text='Invalid input')
+            invalid.grid(row=4, column=0, sticky=W+E, columnspan=2)
+            invalid_input = True
+
+    def delete_food(self, food):
         conn, cursor = self._connect()
-        query = '''INSERT INTO food (name, calories) VALUES (%s, %s)'''
-        parameters = (food, calories)
+        query = '''DELETE FROM food WHERE name = %s and id > 0'''
+        parameters = (food)
         self.run_query(conn, cursor, query, parameters)
-
-    def _connect(self): #Module for connecting to the db
-   
-        conn = pymysql.connect(
-            host='localhost',
-            port=3306, 
-            user='root', 
-            password='mondayl#tm#brok#n', 
-            db='calories'
-            )
-        cursor = conn.cursor()
-        return conn, cursor
-    
-    def run_query(self, conn, cursor, query, parameters=()): #Module for requesting data from the db
-        # try:
-        result = cursor.execute(query, parameters)
-        conn.commit()
-
-        if result:
-            try:
-                return cursor.fetchall()
-            except:pass
-        print('Succesfully runned the query')
-
-        # except:
-        #     print('An error has ocurred while running the query')
-
-        # finally:
-        #     conn.close()
-    
+        self.get_table()
+        
     def get_table(self):
         #Cleaning tree
         records = self.tree.get_children()
@@ -88,6 +87,36 @@ class Calories:
         parameter = (food)
         result = self.run_query(conn, cursor, query, parameters=parameter)
         return result
+
+    #Modules related to the DB
+    def _connect(self): #Module for connecting to the db
+   
+        conn = pymysql.connect(
+            host='localhost',
+            port=3306, 
+            user='root', 
+            password='mondayl#tm#brok#n', 
+            db='calories'
+            )
+        cursor = conn.cursor()
+        return conn, cursor
+    
+    def run_query(self, conn, cursor, query, parameters=()): #Module for requesting data from the db
+        try:
+            result = cursor.execute(query, parameters)
+            conn.commit()
+
+            if result:
+                try:
+                    return cursor.fetchall()
+                except:pass
+            print('Succesfully runned the query')
+
+        except:
+            print('An error has ocurred while running the query')
+
+        finally:
+            conn.close()
 
 if __name__ == '__main__':
     try:
