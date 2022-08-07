@@ -39,8 +39,7 @@ class Calories:
         self.tree.heading('#0', text='Food', anchor=CENTER)
         self.tree.heading('#1', text='Calories', anchor=CENTER)
         self.get_table()
-        
-    
+            
     def add_food(self, food, calories): 
         food_test = food.replace(' ', '')
         calories.strip()
