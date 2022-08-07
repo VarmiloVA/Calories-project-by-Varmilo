@@ -131,5 +131,4 @@ if __name__ == '__main__':
         window.mainloop()
 
     except KeyboardInterrupt:
-        print('\n\tCRUD App closed due to KeyboardInterrupt, see ya!\n')
-         
+        print('\n\tCRUD App closed due to KeyboardInterrupt, see ya!\n') 
